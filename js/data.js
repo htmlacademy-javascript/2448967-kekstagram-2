@@ -1,4 +1,4 @@
-import {getRandomInteger} from './util'
+import {getRandomInteger} from './util.js'
 
 const COUNT_PHOTO = 25;
 const MIN_LIKES = 15;

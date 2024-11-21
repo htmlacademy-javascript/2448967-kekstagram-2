@@ -37,3 +37,22 @@ const cutNumber = (text) => {
 //console.log(cutNumber('dhjlh4 hlfgh3 f7 j e8'))
 
 // 4378
+
+// task 4
+
+const MINUTES_IN_HOUR = 60;
+
+const getTimePoint = (time) => {
+const [hour, min] = time.split(':');
+return hour * MINUTES_IN_HOUR + Number(min)
+}
+
+const checkMeeting = (start, end, startMeet, duringMeet) => {
+  const startPoint = getTimePoint(start);
+  const endPoint = getTimePoint(end);
+  const startMeetPoint = getTimePoint(startMeet);
+  const endMeetPoint = startMeetPoint + duringMeet;
+  return  (startMeetPoint >= startPoint && startMeetPoint <= endPoint && endMeetPoint >= startPoint && endMeetPoint <= endPoint)
+}
+
+// console.log(checkMeeting('8:00', '18:00', '12:00', 90))

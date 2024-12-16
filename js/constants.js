@@ -14,13 +14,13 @@ const EFFECTS_STYLES = {
     INVERT: 'invert',
     BLUR: 'blur',
     BRIGHTNESS: 'brightness'
-}
+};
 
 const UNITS = {
     PX: 'px',
     NONE: '',
     PS: '%'
-}
+};
 
 export const EffectsSetting = {
     [EFFECTS.NONE]: {

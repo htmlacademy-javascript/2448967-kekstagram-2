@@ -18,35 +18,33 @@ let renderedCommrntsCount = 0;
 const show = () => {
   modalElement.classList.remove('hidden');
   body.classList.add('modal-open');
-}
+};
 
 const hide = () => {
   modalElement.classList.add('hidden');
   body.classList.remove('modal-open');
-}
+};
 
 const createComment = (comment) => {
   const newComment = commentElement.cloneNode(true);
-
   const avatarElement = newComment.querySelector('.social__picture');
   avatarElement.src = comment.avatar;
   avatarElement.alt = comment.name;
   newComment.querySelector('.social__text').textContent = comment.message;
-
-  return newComment
-}
+  return newComment;
+};
 
 const renderStatistic = () => {
   renderedCommrntsCountElement.textContent = renderedCommrntsCount;
-}
+};
 
 const renderLoader = () => {
   if (localComments.length) {
-    loaderElement.classList.remove('hidden')
+    loaderElement.classList.remove('hidden');
   } else {
-    loaderElement.classList.add('hidden')
+    loaderElement.classList.add('hidden');
   }
-}
+};
 
 const renderComments = () => {
   const fragment = document.createDocumentFragment();
@@ -55,14 +53,13 @@ const renderComments = () => {
     renderedCommrntsCount++;
   })
   commentsContainerElement.append(fragment);
-
   renderStatistic();
   renderLoader();
-}
+};
 
 loaderElement.addEventListener('click', () => {
   renderComments();
-})
+});
 
 const render = ({ url, description, likes, comments }) => {
   imageElement.src = url;
@@ -71,16 +68,16 @@ const render = ({ url, description, likes, comments }) => {
   totalCommentsElement.textContent = comments.length;
   localComments = [...comments];
   renderedCommrntsCount = 0;
-  renderComments()
-}
+  renderComments();
+};
 
 export const open = (data) => {
   commentsContainerElement.innerHTML = ' ';
   render(data);
   show();
-}
+};
 
 buttonCloseElement.addEventListener('click', (evt) => {
   evt.preventDefault();
   hide();
-})
+});

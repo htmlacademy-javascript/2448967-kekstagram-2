@@ -16,12 +16,12 @@ noUiSlider.create(sliderContainer, {
   start: 80,
   step: 1,
   connect: 'lower',
-})
+});
 
 const render = () => {
   const { style, units } = EffectsSetting[currentEffect];
   imageUploadPreview.style.filter = `${style}(${value.value}${units})`;
-}
+};
 
 const updateSlider = () => {
   const { min, max, step } = EffectsSetting[currentEffect];
@@ -34,17 +34,17 @@ const updateSlider = () => {
     start: max,
   }
   )
-}
+};
 
 sliderContainer.noUiSlider.on('update', () => {
   value.value = sliderContainer.noUiSlider.get();
   render();
-})
+});
 
 export const reset = () => {
   imageUploadPreview.style.filter = '';
   sliderBlock.classList.add('hidden');
-}
+};
 
 effectsList.addEventListener('change', ({ target }) => {
   currentEffect = target.value;
@@ -54,6 +54,6 @@ effectsList.addEventListener('change', ({ target }) => {
     updateSlider();
     sliderBlock.classList.remove('hidden');
   }
-})
+});
 
 reset()

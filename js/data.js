@@ -1,4 +1,4 @@
-import {getRandomInteger} from './util.js'
+import { getRandomInteger } from './util.js';
 
 const COUNT_PHOTO = 25;
 const MIN_LIKES = 15;
@@ -50,8 +50,8 @@ const getComments = () => {
     }
     )
   }
-  return comments
-}
+  return comments;
+};
 
 
 const getPhoto = (i) => {
@@ -62,7 +62,7 @@ const getPhoto = (i) => {
     likes: getRandomInteger(MIN_LIKES, MAX_LIKES),
     comments: getComments()
   }
-}
+};
 
 const getData = () => {
   const data = [];
@@ -71,6 +71,6 @@ const getData = () => {
   }
 
   return data;
-}
+};
 
-export {getData};
+export { getData };

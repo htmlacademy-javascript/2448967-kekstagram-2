@@ -1,4 +1,5 @@
 const BASE_URL = 'https://31.javascript.htmlacademy.pro/kekstagram';
+const body = document.body;
 
 const Route = {
   GET_DATA: '/data',
@@ -22,5 +23,5 @@ export const getData = () =>
 export const sendData = (body) =>
   fetch(`${BASE_URL}${Route.SEND_DATA}`, {
     body,
-    method: 'POST',
+    method: Method.POST
   })

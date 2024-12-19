@@ -53,8 +53,8 @@ const onFormSubmit = (evt) => {
   if (isValid()) {
     // заблокировать кнопку отправки
     blockSubmit();
-    
-    sendData()
+
+    sendData(new FormData(uploadForm))
       .then((response) => {
         if (!response.ok) {
           throw new Error()

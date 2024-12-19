@@ -68,3 +68,13 @@ export const EffectsSetting = {
 };
 
 export const DEFAULT_EFFECT = EFFECTS.NONE;
+
+export const POPUPS = {
+    SUCCESS: 'success',
+    ERROR: 'error'
+};
+
+export const SUBMIT_TEXTS = {
+    IDLE: 'Опубликовать',
+    SENDING: 'Публикую...'
+}

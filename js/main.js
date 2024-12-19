@@ -1,7 +1,12 @@
-import { getData } from './data.js';
 import { renderThumbnails } from './thumbnails.js';
 import './form.js';
+import { showErrorMesage } from './util.js';
+import { getData } from './api.js';
 
-const data = getData();
-renderThumbnails(data);
-
+getData()
+  .then((data) => {
+    renderThumbnails(data);
+  })
+  .catch(() => {
+    showErrorMesage();
+  });

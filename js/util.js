@@ -1,8 +1,11 @@
-const getRandomInteger = (min, max) => {
-  const lower = Math.ceil(Math.min(Math.abs(min), Math.abs(max)));
-  const upper = Math.floor(Math.max(Math.abs(min), Math.abs(max)));
-  const result = Math.random() * (upper - lower + 1) + lower;
-  return Math.floor(result);
-};
+const TIME_OUT = 5000;
+const dataErrorTemplate = document.querySelector('#data-error').content.querySelector('.data-error');
+const body = document.body;
 
-export { getRandomInteger };
+export const showErrorMesage = () => {
+const newDataError =  dataErrorTemplate.cloneNode(true);
+body.append(newDataError);
+setTimeout(() => {
+  newDataError.remove();
+}, TIME_OUT)
+}

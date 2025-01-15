@@ -6,6 +6,7 @@ const containerElement = document.querySelector('.pictures');
 let localData;
 
 export const renderThumbnails = (photos) => {
+  clear();
   localData = [...photos];
   const fragment = document.createDocumentFragment();
   photos.forEach((photo) => {
@@ -30,6 +31,9 @@ containerElement.addEventListener('click', ({ target }) => {
   }
 });
 
+const clear = () => {
+  containerElement.querySelectorAll('.picture').forEach((item) => item.remove());
+}
 
 
 

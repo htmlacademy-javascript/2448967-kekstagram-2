@@ -8,7 +8,7 @@ import { sendData } from './api.js';
 import { removeEscapeControl, setEscapeControl } from './escape-control.js';
 import { showErrorMesage } from './util.js';
 
-const FILE_TYPES = ['jpg', 'jpeg','png', 'gif', 'jfif'];
+const FILE_TYPES = ['jpg', 'jpeg', 'png', 'gif', 'jfif'];
 
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadFile = uploadForm.querySelector('#upload-file');
@@ -31,7 +31,7 @@ const closeForm = () => {
   resetEffects();
 };
 
-const canCloseForm = () => !(document.activeElement === inputHashtags || document.activeElement === inputComment)
+const canCloseForm = () => !(document.activeElement === inputHashtags || document.activeElement === inputComment);
 
 const openForm = () => {
   uploadOverlay.classList.remove('hidden');
@@ -45,24 +45,21 @@ const onFileInputChange = () => {
   const FileExt = fileName.split('.').pop();
   const matches = FILE_TYPES.includes(FileExt);
 
-  if(matches) {
+  if (matches) {
     const url = URL.createObjectURL(file);
     uploadPreview.src = url;
-    uploadPreviewEffects.forEach((item)=> {
+    uploadPreviewEffects.forEach((item) => {
       item.style.backgroundImage = `url(${url})`;
     });
   }
-   else {
-      showErrorMesage();
-      return;
-    }
-    openForm();
+  else {
+    showErrorMesage();
+    return;
+  }
+  openForm();
 };
 
-uploadFileInput.addEventListener('change', () => {
-  openForm();
-});
-
+uploadFileInput.addEventListener('change', onFileInputChange);
 
 uploadCancelInput.addEventListener('click', (evt) => {
   evt.preventDefault();
@@ -70,12 +67,10 @@ uploadCancelInput.addEventListener('click', (evt) => {
   removeEscapeControl();
 });
 
-
-
 const blockSubmit = (isBlocked = true) => {
   submitButton.disabled = isBlocked;
   submitButton.textContent = isBlocked ? SUBMIT_TEXTS.SENDING : SUBMIT_TEXTS.IDLE;
-}
+};
 
 const onFormSubmit = (evt) => {
   evt.preventDefault();
@@ -91,7 +86,7 @@ const onFormSubmit = (evt) => {
         // закрыть форму
         closeForm();
         removeEscapeControl();
-      // показать попап  об успешной отправке
+        // показать попап  об успешной отправке
         showPopup(POPUPS.SUCCESS);
       })
       .catch(() => {

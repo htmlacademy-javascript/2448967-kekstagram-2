@@ -51,8 +51,7 @@ const onFileInputChange = () => {
     uploadPreviewEffects.forEach((item) => {
       item.style.backgroundImage = `url(${url})`;
     });
-  }
-  else {
+  } else {
     showErrorMesage();
     return;
   }
@@ -75,18 +74,14 @@ const blockSubmit = (isBlocked = true) => {
 const onFormSubmit = (evt) => {
   evt.preventDefault();
   if (isValid()) {
-    // заблокировать кнопку отправки
     blockSubmit();
-
     sendData(new FormData(uploadForm))
       .then((response) => {
         if (!response.ok) {
-          throw new Error()
+          throw new Error();
         }
-        // закрыть форму
         closeForm();
         removeEscapeControl();
-        // показать попап  об успешной отправке
         showPopup(POPUPS.SUCCESS);
       })
       .catch(() => {
@@ -94,7 +89,7 @@ const onFormSubmit = (evt) => {
       })
       .finally(() => {
         blockSubmit(false);
-      })
+      });
   }
 };
 

@@ -26,14 +26,14 @@ const debounceRender = debounce(renderThumbnails);
 
 const filtersActions = {
   [FILTERS.DEFAULT]: () => pictures,
-  [FILTERS.RANDOM]: () => pictures.toSorted(() => 0.5 - Math.random()).slice(0, 10),
+  [FILTERS.RANDOM]: () => pictures.toSorted(() => 0.5 - Math.random()).slice(0, MAX_PICTURE_COUNT),
   [FILTERS.DISCUSSED]: () => pictures.toSorted((a, b) => b.comments.length - a.comments.length)
 };
 
-const applyFilter = () => {
-  let filterPictures = filtersActions[currentFilter]();
+function applyFilter () {
+  const filterPictures = filtersActions[currentFilter]();
   debounceRender(filterPictures);
-};
+}
 
 export const configFilter = (picturesData) => {
   filterElement.classList.remove('img-filters--inactive');

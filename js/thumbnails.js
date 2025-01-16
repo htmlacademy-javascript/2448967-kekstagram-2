@@ -5,6 +5,10 @@ const containerElement = document.querySelector('.pictures');
 
 let localData;
 
+const clear = () => {
+  containerElement.querySelectorAll('.picture').forEach((item) => item.remove());
+};
+
 export const renderThumbnails = (photos) => {
   clear();
   localData = [...photos];
@@ -18,7 +22,7 @@ export const renderThumbnails = (photos) => {
     thumbnail.querySelector('.picture__likes').textContent = photo.likes;
     thumbnail.dataset.id = photo.id;
     fragment.append(thumbnail);
-  })
+  });
   containerElement.append(fragment);
 };
 
@@ -30,10 +34,3 @@ containerElement.addEventListener('click', ({ target }) => {
     openModal(photo);
   }
 });
-
-const clear = () => {
-  containerElement.querySelectorAll('.picture').forEach((item) => item.remove());
-}
-
-
-

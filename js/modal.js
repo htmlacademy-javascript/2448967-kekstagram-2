@@ -1,12 +1,12 @@
-import { removeEscapeControl, setEscapeControl } from "./escape-control.js";
+import { removeEscapeControl, setEscapeControl } from './escape-control.js';
 
 const modalElement = document.querySelector('.big-picture');
 const buttonCloseElement = document.querySelector('.big-picture__cancel');
 const body = document.body;
 const imageElement = modalElement.querySelector('.big-picture__img img');
-const captionElement = modalElement.querySelector('.social__caption')
-const likesElement = modalElement.querySelector('.likes-count')
-const totalCommentsElement = modalElement.querySelector('.social__comment-total-count')
+const captionElement = modalElement.querySelector('.social__caption');
+const likesElement = modalElement.querySelector('.likes-count');
+const totalCommentsElement = modalElement.querySelector('.social__comment-total-count');
 const commentsContainerElement = modalElement.querySelector('.social__comments');
 const commentElement = modalElement.querySelector('.social__comment');
 const renderedCommrntsCountElement = modalElement.querySelector('.social__comment-shown-count');
@@ -53,7 +53,7 @@ const renderComments = () => {
   localComments.splice(0, COMMENTS_STEP).forEach((comment) => {
     fragment.append(createComment(comment));
     renderedCommrntsCount++;
-  })
+  });
   commentsContainerElement.append(fragment);
   renderStatistic();
   renderLoader();

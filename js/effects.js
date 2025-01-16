@@ -1,4 +1,4 @@
-import { DEFAULT_EFFECT, EffectsSetting } from "./constants.js";
+import { DEFAULT_EFFECT, EffectsSetting } from './constants.js';
 
 const effectsList = document.querySelector('.effects__list');
 const sliderContainer = document.querySelector('.effect-level__slider');
@@ -16,6 +16,14 @@ noUiSlider.create(sliderContainer, {
   start: 80,
   step: 1,
   connect: 'lower',
+  format: {
+    to: function (v) {
+      return parseFloat(v);
+    },
+    from: function (v) {
+      return parseFloat(v);
+    }
+  },
 });
 
 const render = () => {
@@ -32,8 +40,7 @@ const updateSlider = () => {
     },
     step,
     start: max,
-  }
-  )
+  });
 };
 
 sliderContainer.noUiSlider.on('update', () => {
@@ -56,4 +63,4 @@ effectsList.addEventListener('change', ({ target }) => {
   }
 });
 
-reset()
+reset();

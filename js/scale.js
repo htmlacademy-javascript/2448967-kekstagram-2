@@ -32,6 +32,6 @@ scalleBigger.addEventListener('click', onScalleBiggerClick);
 export const reset = () => {
   currentScale = SCALE_VALUE_DEFAULT;
   render();
-}
+};
 
 reset();

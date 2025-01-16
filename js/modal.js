@@ -1,3 +1,5 @@
+import { removeEscapeControl, setEscapeControl } from "./escape-control.js";
+
 const modalElement = document.querySelector('.big-picture');
 const buttonCloseElement = document.querySelector('.big-picture__cancel');
 const body = document.body;
@@ -75,9 +77,11 @@ export const open = (data) => {
   commentsContainerElement.innerHTML = ' ';
   render(data);
   show();
+  setEscapeControl(hide);
 };
 
 buttonCloseElement.addEventListener('click', (evt) => {
   evt.preventDefault();
   hide();
+  removeEscapeControl();
 });

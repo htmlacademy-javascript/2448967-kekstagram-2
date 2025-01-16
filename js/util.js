@@ -8,4 +8,12 @@ body.append(newDataError);
 setTimeout(() => {
   newDataError.remove();
 }, TIME_OUT)
+};
+
+export const debounce = (callback, timeoutDelay = 500) => {
+  let timeoutId;
+return function() {
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(() => callback(...arguments), timeoutDelay);
+};
 }

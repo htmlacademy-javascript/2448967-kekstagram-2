@@ -3,17 +3,17 @@ const dataErrorTemplate = document.querySelector('#data-error').content.querySel
 const body = document.body;
 
 export const showErrorMesage = () => {
-const newDataError =  dataErrorTemplate.cloneNode(true);
-body.append(newDataError);
-setTimeout(() => {
-  newDataError.remove();
-}, TIME_OUT)
+  const newDataError = dataErrorTemplate.cloneNode(true);
+  body.append(newDataError);
+  setTimeout(() => {
+    newDataError.remove();
+  }, TIME_OUT);
 };
 
 export const debounce = (callback, timeoutDelay = 500) => {
   let timeoutId;
-return function() {
-  clearTimeout(timeoutId);
-  timeoutId = setTimeout(() => callback(...arguments), timeoutDelay);
+  return function () {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback(...arguments), timeoutDelay);
+  };
 };
-}

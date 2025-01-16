@@ -77,17 +77,17 @@ export const POPUPS = {
 export const SUBMIT_TEXTS = {
   IDLE: 'Опубликовать',
   SENDING: 'Публикую...'
-}
+};
 
 export const Route = {
   GET_DATA: '/data',
   SEND_DATA: '/',
-}
+};
 
 export const Method = {
   GET: 'GET',
   POST: 'POST'
-}
+};
 
 export const MAX_PICTURE_COUNT = 10;
 

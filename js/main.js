@@ -3,12 +3,12 @@ import './form.js';
 import { showErrorMesage } from './util.js';
 import { getData } from './api.js';
 import './filter.js';
-import { configFilter } from './filter.js';
+import { initFilter } from './filter.js';
 
 getData()
   .then((data) => {
     renderThumbnails(data);
-    configFilter(data);
+    initFilter(data);
   })
   .catch(() => {
     showErrorMesage();

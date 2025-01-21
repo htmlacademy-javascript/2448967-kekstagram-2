@@ -1,8 +1,6 @@
 import { removeEscapeControl, setEscapeControl } from './escape-control.js';
 import { COMMENTS_STEP } from './constants.js';
 
-let localComments;
-let renderedCommentsCount = 0;
 const modalElement = document.querySelector('.big-picture');
 const buttonCloseElement = document.querySelector('.big-picture__cancel');
 const body = document.body;
@@ -14,6 +12,9 @@ const commentsContainerElement = modalElement.querySelector('.social__comments')
 const commentElement = modalElement.querySelector('.social__comment');
 const renderedCommentsCountElement = modalElement.querySelector('.social__comment-shown-count');
 const loaderElement = modalElement.querySelector('.comments-loader');
+
+let localComments;
+let renderedCommentsCount = 0;
 
 const show = () => {
   modalElement.classList.remove('hidden');

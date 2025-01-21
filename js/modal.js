@@ -1,4 +1,5 @@
 import { removeEscapeControl, setEscapeControl } from './escape-control.js';
+import { COMMENTS_STEP } from './constants.js';
 
 const modalElement = document.querySelector('.big-picture');
 const buttonCloseElement = document.querySelector('.big-picture__cancel');
@@ -9,13 +10,11 @@ const likesElement = modalElement.querySelector('.likes-count');
 const totalCommentsElement = modalElement.querySelector('.social__comment-total-count');
 const commentsContainerElement = modalElement.querySelector('.social__comments');
 const commentElement = modalElement.querySelector('.social__comment');
-const renderedCommrntsCountElement = modalElement.querySelector('.social__comment-shown-count');
+const renderedCommentsCountElement = modalElement.querySelector('.social__comment-shown-count');
 const loaderElement = modalElement.querySelector('.comments-loader');
 
-const COMMENTS_STEP = 5;
 let localComments;
-let renderedCommrntsCount = 0;
-
+let renderedCommentsCount = 0;
 
 const show = () => {
   modalElement.classList.remove('hidden');
@@ -37,7 +36,7 @@ const createComment = (comment) => {
 };
 
 const renderStatistic = () => {
-  renderedCommrntsCountElement.textContent = renderedCommrntsCount;
+  renderedCommentsCountElement.textContent = renderedCommentsCount;
 };
 
 const renderLoader = () => {
@@ -52,7 +51,7 @@ const renderComments = () => {
   const fragment = document.createDocumentFragment();
   localComments.splice(0, COMMENTS_STEP).forEach((comment) => {
     fragment.append(createComment(comment));
-    renderedCommrntsCount++;
+    renderedCommentsCount++;
   });
   commentsContainerElement.append(fragment);
   renderStatistic();
@@ -69,7 +68,7 @@ const render = ({ url, description, likes, comments }) => {
   likesElement.textContent = likes;
   totalCommentsElement.textContent = comments.length;
   localComments = [...comments];
-  renderedCommrntsCount = 0;
+  renderedCommentsCount = 0;
   renderComments();
 };
 

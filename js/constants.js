@@ -98,3 +98,5 @@ export const FILTERS = {
 };
 
 export const ACTIVE_BUTTON = 'img-filters__button--active';
+
+export const COMMENTS_STEP = 5;
